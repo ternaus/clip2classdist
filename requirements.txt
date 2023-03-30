@@ -1,0 +1,6 @@
+-f https://download.pytorch.org/whl/cu118
+torch
+
+faiss_cpu>=1.7.3
+torch>=2.0.0
+torchvision>=0.15.1
