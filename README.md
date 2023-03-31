@@ -6,7 +6,19 @@ The script takes a list of image folders as input, with each folder representing
 
 ## Installation
 
-Clone the repository:
+You can install the `clip2classdist` package from PyPI:
+
+```bash
+pip install clip2classdist
+```
+
+``` bash
+pip install git+https://github.com/ternaus/clip2classdist.git
+```
+
+### Manual installation
+
+If you prefer to install the package manually, clone the repository:
 
 ```bash
 git clone https://github.com/ternaus/clip2classdist.git
