@@ -73,7 +73,28 @@ def compute_cross_class_dot_products(embeddings: dict[str, np.ndarray]) -> list[
     return all_dot_products
 
 
-def main(args: argparse.Namespace) -> None:
+def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("-m", "--clip_model", type=str, required=True, help="Name of the CLIP model.")
+    parser.add_argument(
+        "-i",
+        "--image_folders",
+        nargs="+",
+        metavar=("class", "folder"),
+        action="append",
+        required=True,
+        help="List of class-folder pairs.",
+    )
+    parser.add_argument(
+        "-d", "--device", type=str, default="cpu", help="Device to run the model on (e.g., 'cpu' or 'cuda')."
+    )
+    args = parser.parse_args()
+
+    # Pass the parsed args to the existing main(args) function
+    main_with_args(args)
+
+
+def main_with_args(args: argparse.Namespace) -> None:
     # Load CLIP model
     model, preprocess = clip.load(args.clip_model, device=args.device)
     model.eval()
@@ -110,31 +131,4 @@ def main(args: argparse.Namespace) -> None:
 
 
 if __name__ == "__main__":
-    allowed_models = [
-        "ViT-B/32",
-        "RN50",
-        "RN101",
-        "RN50x4",
-        "RN50x16",
-        "ViT-B/16",
-        "RN50x64",
-        "ViT-L/14",
-        "ViT-L/14@336px",
-    ]
-    parser = argparse.ArgumentParser()
-    parser.add_argument("-m", "--clip_model", type=str, required=True, help="Name of the CLIP model.")
-    parser.add_argument(
-        "-i",
-        "--image_folders",
-        nargs="+",
-        metavar=("class", "folder"),
-        action="append",
-        required=True,
-        help="List of class-folder pairs.",
-    )
-    parser.add_argument(
-        "-d", "--device", type=str, default="cpu", help="Device to run the model on (e.g., 'cpu' or 'cuda')."
-    )
-    args = parser.parse_args()
-
-    main(args)
+    main()

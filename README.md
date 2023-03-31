@@ -29,16 +29,16 @@ python clip2class_dist/compute.py --clip_model MODEL_NAME --image_folders CLASS_
 
 Arguments:
 
-* --clip_model: Name of the CLIP model to use (e.g., "ViT-B/32"). Where allowed models:
-  * ViT-B/32
-  * RN50
-  * RN101
-  * RN50x4
-  * RN50x16
-  * ViT-B/16
-  * RN50x64
-  * ViT-L/14
-  * ViT-L/14@336px
+* --clip_model: Name of the CLIP model to use (e.g., `ViT-B/32`). Where allowed models:
+  * `ViT-B/32`
+  * `RN50`
+  * `RN101`
+  * `RN50x4`
+  * `RN50x16`
+  * `ViT-B/16`
+  * `RN50x64`
+  * `ViT-L/14`
+  * `ViT-L/14@336px`
 * --image_folders: List of pairs containing class names and corresponding folder paths containing images. Each pair should be separated by a space, and pairs should be space-separated as well (e.g., "dogs /path/to/dog_images cats /path/to/cat_images").
 * --device (optional): Device to run the model on (default: "cpu"). Set to "cuda" if you have a compatible GPU.
 
